@@ -72,7 +72,7 @@ export default function Projects() {
   }, [selectedProject]);
 
   return (
-    <section id="proyek" className="projects-section fade-in-up" style={{ padding: '4rem 0' }}>
+    <section id="proyek" className="projects-section fade-in-up">
       <div className="section-header">
         <h2 className="section-title">Galeri Portofolio</h2>
         <p className="section-subtitle">Daftar proyek rekayasa perangkat lunak dan studi kasus desain UI/UX</p>

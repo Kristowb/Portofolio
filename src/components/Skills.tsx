@@ -44,9 +44,37 @@ const skillsData: SkillCategory[] = [
   }
 ];
 
+const getSkillColor = (name: string): string => {
+  const peach = 'var(--timeline-thinking)';
+  const mint = 'var(--timeline-grep)';
+  const blue = 'var(--timeline-read)';
+  const lavender = 'var(--timeline-edit)';
+  const gold = 'var(--timeline-done)';
+
+  const mapping: { [key: string]: string } = {
+    'React': peach,
+    'Figma': peach,
+    'Node.js': peach,
+    'TypeScript': mint,
+    'Wireframing': mint,
+    'Git & GitHub': mint,
+    'JavaScript': blue,
+    'User Research': blue,
+    'Vite & Bundlers': blue,
+    'HTML5 & CSS3': lavender,
+    'Prototyping': lavender,
+    'npm / pnpm': lavender,
+    'Next.js': gold,
+    'Design Systems': gold,
+    'VS Code': gold
+  };
+
+  return mapping[name] || 'var(--accent-color)';
+};
+
 export default function Skills() {
   return (
-    <section id="keahlian" className="skills-section fade-in-up" style={{ padding: '4rem 0', borderTop: '1px solid var(--border-color)' }}>
+    <section id="keahlian" className="skills-section fade-in-up">
       <div className="section-header">
         <h2 className="section-title">Keahlian Utama</h2>
         <p className="section-subtitle">Teknologi, alat, dan disiplin desain yang saya gunakan untuk membawa ide menjadi kenyataan</p>
@@ -74,7 +102,10 @@ export default function Skills() {
                     <div className="skill-bar-bg">
                       <div
                         className="skill-bar-fill"
-                        style={{ '--skill-level': `${skill.level}%` } as React.CSSProperties}
+                        style={{ 
+                          '--skill-level': `${skill.level}%`,
+                          '--skill-color': getSkillColor(skill.name)
+                        } as React.CSSProperties}
                         role="progressbar"
                         aria-valuenow={skill.level}
                         aria-valuemin={0}

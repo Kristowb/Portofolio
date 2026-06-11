@@ -25,9 +25,9 @@ export default function FableCanvas() {
     let width = (canvas.width = canvas.parentElement?.clientWidth || window.innerWidth);
     let height = (canvas.height = canvas.parentElement?.clientHeight || 500);
 
-    // Dapatkan preferensi tema (hanya aktifkan partikel hijau jika di mode dark/cyberpunk)
-    const isDark = document.documentElement.getAttribute('data-theme') === 'dark' || 
-                   document.body.classList.contains('cyberpunk-mode');
+    // Deteksi apakah sedang dalam mode hack cyberpunk
+    const isCyberpunk = document.body.classList.contains('cyberpunk-mode');
+    const particleColor = isCyberpunk ? '16, 185, 129' : '245, 78, 0'; // Hijau Cyberpunk / Cursor Orange
     
     const particleCount = 60;
     const particles: Particle[] = [];
@@ -40,7 +40,7 @@ export default function FableCanvas() {
         vx: (Math.random() - 0.5) * 0.8,
         vy: (Math.random() - 0.5) * 0.8,
         radius: Math.random() * 2 + 1,
-        color: isDark ? '16, 185, 129' : '49, 130, 206', // Green Emerald (Dark) / Blue Accent (Light)
+        color: particleColor,
         alpha: Math.random() * 0.5 + 0.2
       });
     }

@@ -25,12 +25,25 @@ function App() {
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
-        padding: '1.5rem 0',
+        height: '64px',
         borderBottom: '1px solid var(--border-color)',
-        marginBottom: '2rem'
+        marginBottom: '3rem'
       }}>
-        <div style={{ fontWeight: 600, fontSize: '1.2rem' }}>
-          {isAiMode ? 'fable5@agent:~#' : 'Portofolio'}
+        <div style={{ 
+          fontFamily: 'var(--font-family)',
+          fontWeight: 400, 
+          fontSize: '1.25rem',
+          letterSpacing: '-0.025em',
+          color: 'var(--text-main)',
+          display: 'flex',
+          alignItems: 'center',
+          gap: '4px'
+        }}>
+          {isAiMode ? 'fable5@agent:~#' : (
+            <>
+              Ryan Carson<span style={{ color: 'var(--accent-color)' }}>.</span>
+            </>
+          )}
         </div>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
           <button
@@ -38,9 +51,10 @@ function App() {
             className="btn btn-secondary btn-sm"
             style={{ 
               borderRadius: '8px', 
-              padding: '0.45rem 0.9rem',
-              borderColor: isAiMode ? 'var(--accent-color)' : 'var(--border-color)',
-              color: isAiMode ? 'var(--accent-color)' : 'var(--text-main)'
+              padding: '0 0.9rem',
+              borderColor: isAiMode ? 'var(--accent-color)' : 'var(--border-color-strong)',
+              color: isAiMode ? 'var(--accent-color)' : 'var(--text-main)',
+              height: '34px'
             }}
           >
             {isAiMode ? 'Mode Manusia' : 'Mode AI (Fable 5)'}
@@ -64,13 +78,13 @@ function App() {
 
       <footer style={{
         textAlign: 'center',
-        padding: '3rem 0',
+        padding: '4rem 1.5rem',
         borderTop: '1px solid var(--border-color)',
-        color: 'var(--text-muted)',
-        fontSize: '0.9rem'
+        color: 'var(--text-body)',
+        fontSize: '0.875rem'
       }}>
         <p>&copy; {new Date().getFullYear()} {isAiMode ? 'Claude Fable 5' : 'Ryan Carson'}. Hak Cipta Dilindungi Undang-Undang.</p>
-        <p style={{ marginTop: '0.5rem', fontSize: '0.8rem' }}>Membangun dengan React + Vite + TypeScript.</p>
+        <p style={{ marginTop: '0.5rem', fontSize: '0.8rem', color: 'var(--text-muted)' }}>Membangun dengan React + Vite + TypeScript.</p>
       </footer>
     </div>
   );

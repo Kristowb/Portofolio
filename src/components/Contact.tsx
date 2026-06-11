@@ -105,7 +105,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="kontak" className="contact-section fade-in-up" style={{ padding: '4rem 0', borderTop: '1px solid var(--border-color)' }}>
+    <section id="kontak" className="contact-section fade-in-up">
       <div className="section-header">
         <h2 className="section-title">Hubungi Saya</h2>
         <p className="section-subtitle">Punya proyek menarik, tawaran pekerjaan, atau hanya ingin menyapa? Silakan kirim pesan Anda.</p>
@@ -185,7 +185,7 @@ export default function Contact() {
               <span className="spinner-loader">Mengirim...</span>
             ) : (
               <>
-                Kirim Pesan <Send size={16} style={{ marginLeft: '8px' }} />
+                Kirim Pesan <Send size={14} style={{ marginLeft: '6px' }} />
               </>
             )}
           </button>
@@ -195,7 +195,7 @@ export default function Contact() {
       {/* Toast Notifikasi Sukses */}
       {submitSuccess && (
         <div className="toast-notification" role="status">
-          <CheckCircle2 size={18} className="toast-icon" />
+          <CheckCircle2 size={16} className="toast-icon" />
           <span>Pesan Anda berhasil dikirim! Kami akan menghubungi Anda segera.</span>
         </div>
       )}

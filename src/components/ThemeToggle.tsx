@@ -24,9 +24,9 @@ export default function ThemeToggle() {
       aria-label={`Ubah ke mode ${theme === 'light' ? 'gelap' : 'terang'}`}
     >
       {theme === 'light' ? (
-        <Moon className="icon-theme" size={20} />
+        <Moon className="icon-theme" size={18} />
       ) : (
-        <Sun className="icon-theme" size={20} />
+        <Sun className="icon-theme" size={18} />
       )}
     </button>
   );
