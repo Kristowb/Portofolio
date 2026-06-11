@@ -25,3 +25,10 @@
 - **Pembelajaran untuk iterasi berikutnya:**
   - Pola yang ditemukan: Sejak React 17+, impor eksplisit `React` dari 'react' tidak lagi diwajibkan untuk file JSX. Meninggalkan impor ini ketika tidak digunakan akan memicu peringatan/error variabel tak terpakai (TS6133) oleh kompiler TypeScript. Selalu impor hanya modul/fungsi yang dibutuhkan.
 ---
+
+## 2026-06-11 - US-004
+- Apa yang diimplementasikan: Pembuatan komponen Projects.tsx yang menyajikan galeri filterable untuk proyek Software dan UI/UX Design, detail modal dialog aksesibel dengan penutupan via tombol/overlay/Escape, manajemen fokus keyboard, dan pemanfaatan SVG inline untuk ikon GitHub.
+- File yang diubah: src/data/projects.ts, src/components/Projects.tsx, src/App.tsx, src/index.css, prd.json.
+- **Pembelajaran untuk iterasi berikutnya:**
+  - Pola yang ditemukan: Di React + TypeScript, pastikan bahwa fungsi pendengar event (seperti `handleCloseModal` yang dipanggil di `useEffect`) dideklarasikan SEBELUM blok efek tersebut, atau ditangani secara inline/useCallback untuk mencegah error linter. Impor tipe data TypeScript otonom harus dituliskan menggunakan syntax `import type` saat verbatimModuleSyntax diaktifkan.
+---

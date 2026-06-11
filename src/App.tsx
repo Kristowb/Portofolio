@@ -1,5 +1,6 @@
 import ThemeToggle from './components/ThemeToggle';
 import Hero from './components/Hero';
+import Projects from './components/Projects';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
 
       <main>
         <Hero />
+        <Projects />
       </main>
     </div>
   );
