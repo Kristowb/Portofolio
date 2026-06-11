@@ -46,3 +46,10 @@
 - **Pembelajaran untuk iterasi berikutnya:**
   - Pola yang ditemukan: Di React + TS, event handler input seperti input & textarea dapat berbagi fungsi handler `handleChange` tunggal dengan menggunakan cast `e.target` secara dinamis.
 ---
+
+## 2026-06-11 - Fase 5: Claude Fable 5
+- Apa yang diimplementasikan: Pembuatan landing page interaktif Claude Fable 5 berbasis tren desain 2026: Bento Grid layout, Canvas partikel interaktif (`FableCanvas`), terminal interaktif (`ClaudeFable`), serta implementasi Easter Eggs (Konami Code detector global untuk mengaktifkan Matrix Mode dan Logo Click Challenge untuk Rage Mode).
+- File yang diubah: src/components/FableCanvas.tsx, src/components/ClaudeFable.tsx, src/App.tsx, src/index.css, task.md.
+- **Pembelajaran untuk iterasi berikutnya:**
+  - Pola yang ditemukan: Di React, style objek inline memerlukan nilai string terbungkus tanda kutip untuk nilai seperti `'100%'`. Pengecekan compiler TS (`tsc`) dapat berjalan secara otomatis di dalam `npm run build` dan mendeteksi kesalahan tersebut sebelum bundling produksi.
+---
