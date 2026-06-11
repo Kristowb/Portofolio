@@ -53,3 +53,11 @@
 - **Pembelajaran untuk iterasi berikutnya:**
   - Pola yang ditemukan: Di React, style objek inline memerlukan nilai string terbungkus tanda kutip untuk nilai seperti `'100%'`. Pengecekan compiler TS (`tsc`) dapat berjalan secara otomatis di dalam `npm run build` dan mendeteksi kesalahan tersebut sebelum bundling produksi.
 ---
+
+## 2026-06-11 - US-001
+- Apa yang diimplementasikan: Konfigurasi sistem desain tema Cursor dengan warna Canvas terang/gelap, ink/warm-white, font Inter (sans-serif) sebagai pengganti CursorGothic, JetBrains Mono untuk metrik, kode, & terminal, serta penyesuaian hairline border 1px tanpa bayangan.
+- File yang diubah: src/index.css, prd.json, progress.txt, src/components/ClaudeFable.tsx
+- **Pembelajaran untuk iterasi berikutnya:**
+  - Pola yang ditemukan: Di React + TypeScript, pendefinisian variabel CSS dan penamaan font harus sinkron di CSS dan JSX (fontFamily, dll). Melakukan pemetaan ulang `--font-serif: var(--font-family);` mengamankan integritas markup editorial agar tidak memicu fallback serif bawaan browser.
+  - Masalah/kendala yang dihadapi: Terdapat error linter ESLint pada ClaudeFable.tsx karena mengakses fungsi sebelum dideklarasikan. Solusinya adalah memindahkan fungsi triggerMatrixMode ke atas useEffect tempat dia dipanggil.
+---

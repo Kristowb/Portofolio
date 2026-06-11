@@ -22,127 +22,138 @@ export interface ProfileData {
   namePersonal: string;
   aboutProfessional: string[];
   aboutPersonal: string[];
+  tools: string[];
+  languages: string[];
 }
 
 export const profileData: ProfileData = {
   nameProfessional: "Kristianto Wibawa",
-  namePersonal: "Kristianto",
+  namePersonal: "Kris",
   aboutProfessional: [
-    "Engineer & serial entrepreneur. Saat ini bekerja pada proyek asisten AI otonom (seperti Claude Code / Antigravity) di Anthropic / Google DeepMind.",
-    "Sebelumnya mendirikan perusahaan game yang didukung YC dan menggalang dana $17 juta (One More Multiverse), menjual startup SaaS, membuat platform non-profit (Pubpub.org), dan menempuh studi pascasarjana di MIT Media Lab."
+    "Software Engineer at Whiteopen Teknologi (Bandung). Graduate of STMIK LIKMI with a focus on Information Systems.",
+    "Strong advocate for Ecosystem Play strategies, preferring one-time software payment models over monthly subscriptions."
   ],
   aboutPersonal: [
-    "Mencoba untuk memperhatikan dunia dengan saksama.",
-    "Menulis tentang tanah liat, cahaya, interaksi mesin-manusia, dan filosofi pengodean."
+    "Dota 2 Carry player, Solana DeFi trader on Binance, Coinbase, and OpenSea, JKT48/AKB48 fan (who routinely attends concerts like Wonderland 13th Anniversary and ALL IN TOUR), 7-week workout planner, and local Indonesian culinary enthusiast (bakso, nasi goreng, seblak, soto, satai)."
+  ],
+  tools: [
+    "JetBrains WebStorm",
+    "Cursor",
+    "GitHub Copilot",
+    "Figma"
+  ],
+  languages: [
+    "Indonesian (Native)",
+    "English (Proficient)"
   ]
 };
 
 export const postsData: PostItem[] = [
   {
-    id: "1",
-    title: "LLM-Powered Sorting with TrueSkill",
-    readTime: "7 min read",
-    date: "11 Feb 2025",
-    slug: "sorting",
+    id: "prof-1",
+    title: "Migrating from Monolith Hibernate to Spring Boot with Java 17",
+    readTime: "8 min read",
+    date: "15 Mar 2026",
+    slug: "monolith-to-spring-boot-java17",
     pinned: false
   },
   {
-    id: "2",
-    title: "Should Developers Care about Interpretability?",
+    id: "prof-2",
+    title: "Designing a Highly Scalable Database for Beautypedia Cosmetic Marketplace",
     readTime: "6 min read",
-    date: "4 Nov 2024",
-    slug: "interpretability",
+    date: "2 Feb 2026",
+    slug: "beautypedia-database-design",
     pinned: false
   },
   {
-    id: "3",
-    title: "Clay and Light",
-    readTime: "2 min read",
-    date: "6 Dec 2025",
-    slug: "clay-and-light",
+    id: "prof-3",
+    title: "Implementing Clean Google OAuth Authentication in Spring Boot",
+    readTime: "5 min read",
+    date: "12 Jan 2026",
+    slug: "spring-boot-google-oauth",
+    pinned: false
+  },
+  {
+    id: "prof-4",
+    title: "Configuring Autonomous AI Agents and MCP using Hermes and OpenClaw",
+    readTime: "7 min read",
+    date: "3 Dec 2025",
+    slug: "ai-agents-mcp-hermes-openclaw",
+    pinned: false
+  },
+  {
+    id: "pers-1",
+    title: "My Solana DeFi Trading Strategy: Navigating the SOL Ecosystem on Binance, Coinbase, and OpenSea",
+    readTime: "4 min read",
+    date: "28 May 2026",
+    slug: "solana-defi-trading-strategy",
     pinned: true
   },
   {
-    id: "4",
-    title: "Sparse Rewards: Enlightenment and Reinforcement Learning",
-    readTime: "4 min read",
-    date: "28 Mar 2026",
-    slug: "sparse-rewards",
+    id: "pers-2",
+    title: "Playing Carry in Dota 2: Tips for Grinding MMR",
+    readTime: "5 min read",
+    date: "14 Apr 2026",
+    slug: "dota2-carry-grinding-mmr",
     pinned: false
   },
   {
-    id: "5",
-    title: "I can think. I can wait. I can fast.",
-    readTime: "2 min read",
-    date: "20 Jan 2026",
-    slug: "fast",
+    id: "pers-3",
+    title: "Concert Review: Wonderland JKT48 13th Anniversary and ALL IN TOUR",
+    readTime: "6 min read",
+    date: "20 Mar 2026",
+    slug: "jkt48-akb48-concert-review",
+    pinned: false
+  },
+  {
+    id: "pers-4",
+    title: "Survival Guide: Surviving the Intense 7-Week Workout Schedule",
+    readTime: "3 min read",
+    date: "10 Feb 2026",
+    slug: "seven-week-workout-survival-guide",
+    pinned: false
+  },
+  {
+    id: "pers-5",
+    title: "Bandung Culinary Tour: Finding the Best Bakso, Nasi Goreng, Seblak, Soto, and Satai",
+    readTime: "4 min read",
+    date: "15 Jan 2026",
+    slug: "bandung-culinary-local-tour",
     pinned: false
   }
 ];
 
 export const projectsData: ProjectItem[] = [
   {
-    id: "multiverse",
-    title: "One More Multiverse",
-    description: "Perusahaan game RPG yang didukung YC yang saya kelola selama 5 tahun. Kami berhasil menjangkau lebih dari satu juta pengguna dan menjadi viral di TikTok.",
-    imageUrl: "https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&w=600&q=80",
-    demoUrl: "https://www.playmultiverse.com",
+    id: "beautypedia",
+    title: "Beautypedia",
+    description: "A cosmetic marketplace platform. Designed the database structure and integrated Xendit payment gateway.",
+    imageUrl: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&w=600&q=80",
+    demoUrl: "https://beautypedia.id",
     status: "Active"
   },
   {
-    id: "latentlit",
-    title: "LatentLit",
-    description: "Sebuah alat bantu modern untuk membuat, melatih, dan membagikan agen-agen kecerdasan buatan (LLM-powered AI agents).",
-    imageUrl: "https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80",
-    demoUrl: "https://latentlit.goodfire.ai",
+    id: "trustpos",
+    title: "Trustpos",
+    description: "Led the complete migration of the system from a monolith Hibernate architecture to a microservices architecture.",
+    imageUrl: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=600&q=80",
+    demoUrl: "https://trustpos.com",
     status: "Active"
   },
   {
-    id: "quickedit",
-    title: "Quick Edit",
-    description: "Asisten penyuntingan tulisan berbasis AI (Copyediting) dengan antarmuka pengguna yang sangat responsif dan efisien.",
-    imageUrl: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=600&q=80",
-    demoUrl: "https://quickedits.thariq.io",
+    id: "google-oauth",
+    title: "System Integration",
+    description: "Implemented Google OAuth authentication, including writing migration scripts and service layer logic.",
+    imageUrl: "https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=600&q=80",
+    demoUrl: "https://github.com/Kristowb/google-oauth-migration",
     status: "Active"
   },
   {
-    id: "sherpa",
-    title: "Sherpa",
-    description: "Agen email AI cerdas yang mengurutkan dan memprioritaskan email Anda berdasarkan jaringan kontak dan tujuan karir Anda.",
-    imageUrl: "https://images.unsplash.com/photo-1557200134-90327ee9fafa?auto=format&fit=crop&w=600&q=80",
-    demoUrl: "/blog/sherpa",
+    id: "ai-development",
+    title: "AI Development",
+    description: "Configured autonomous AI Agents and Model Context Protocol (MCP) using Hermes and OpenClaw.",
+    imageUrl: "https://images.unsplash.com/photo-1677442136019-21780efad99a?auto=format&fit=crop&w=600&q=80",
+    demoUrl: "https://github.com/Kristowb/openclaw-mcp",
     status: "Prototype"
-  },
-  {
-    id: "worldbuilding",
-    title: "AI World Building",
-    description: "Eksperimen dalam pembuatan dunia (world-building) bertenaga AI untuk membantu jalannya permainan bermain peran (roleplaying games).",
-    imageUrl: "https://images.unsplash.com/photo-1509198397868-475647b2a1e5?auto=format&fit=crop&w=600&q=80",
-    demoUrl: "/blog/worldbuilding",
-    status: "Prototype"
-  },
-  {
-    id: "edgeout",
-    title: "Edgeout.gg",
-    description: "Platform analitik gaming bootstrapped yang saya rancang dan bangun sendiri secara penuh, lalu berhasil diakuisisi oleh blitz.gg.",
-    imageUrl: "https://images.unsplash.com/photo-1612287230202-1bf1d85d1bdf?auto=format&fit=crop&w=600&q=80",
-    demoUrl: "https://blitz.gg",
-    status: "Acquisition"
-  },
-  {
-    id: "pubpub",
-    title: "Pubpub.org",
-    description: "Platform publikasi akademik nirlaba open-access yang saya dirikan bersama rekan di MIT Media Lab.",
-    imageUrl: "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=600&q=80",
-    demoUrl: "https://pubpub.org",
-    status: "Active"
-  },
-  {
-    id: "chime",
-    title: "Chime",
-    description: "Startup perpesanan yang saya dirikan saat masa kuliah sarjana, yang kemudian sukses diakuisisi oleh HubSpot.",
-    imageUrl: "https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=600&q=80",
-    demoUrl: "https://techcrunch.com/2013/03/28/hubspot-acquires-chime-prepwork/",
-    status: "Acquisition"
   }
 ];

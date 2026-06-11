@@ -1,15 +1,93 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import ThemeToggle from './components/ThemeToggle';
 import Hero from './components/Hero';
 import Projects from './components/Projects';
-import Skills from './components/Skills';
-import Contact from './components/Contact';
 import ClaudeFable from './components/ClaudeFable';
 import Posts from './components/Posts';
 
 function App() {
   const [siteMode, setSiteMode] = useState<'professional' | 'personal'>('professional');
   const [isAiMode, setIsAiMode] = useState(false);
+  const [activeSection, setActiveSection] = useState<'Home' | 'Posts' | 'Projects'>('Home');
+
+  const cursorRingRef = useRef<HTMLDivElement | null>(null);
+  const cursorDotRef = useRef<HTMLDivElement | null>(null);
+
+  // Kursor kustom berkinerja tinggi (manipulasi DOM langsung agar 60+ FPS)
+  useEffect(() => {
+    const cursorRing = cursorRingRef.current;
+    const cursorDot = cursorDotRef.current;
+
+    const handleMouseMove = (e: MouseEvent) => {
+      if (cursorRing) {
+        cursorRing.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0) translate3d(-50%, -50%, 0)`;
+      }
+      if (cursorDot) {
+        cursorDot.style.transform = `translate3d(${e.clientX}px, ${e.clientY}px, 0) translate3d(-50%, -50%, 0)`;
+      }
+    };
+
+    const handleMouseOver = (e: MouseEvent) => {
+      const target = e.target as HTMLElement;
+      if (
+        target.tagName === 'A' || 
+        target.tagName === 'BUTTON' || 
+        target.closest('a') || 
+        target.closest('button') ||
+        target.closest('.project-card-btn') ||
+        target.closest('.mode-toggle') ||
+        target.classList.contains('illuminated-link')
+      ) {
+        cursorRing?.classList.add('hovering');
+      } else {
+        cursorRing?.classList.remove('hovering');
+      }
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mouseover', handleMouseOver);
+    return () => {
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('mouseover', handleMouseOver);
+    };
+  }, []);
+
+  // Intersection Observer untuk melacak seksi aktif di viewport
+  useEffect(() => {
+    const sections = document.querySelectorAll('section[id]');
+    const options = {
+      root: null,
+      rootMargin: '-30% 0px -50% 0px',
+      threshold: 0
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('id');
+          if (id === 'home') setActiveSection('Home');
+          else if (id === 'posts') setActiveSection('Posts');
+          else if (id === 'projects') setActiveSection('Projects');
+        }
+      });
+    }, options);
+
+    sections.forEach((section) => observer.observe(section));
+
+    return () => {
+      sections.forEach((section) => observer.unobserve(section));
+    };
+  }, [siteMode]);
+
+  // Sinkronisasi judul dokumen (tab browser) secara dinamis
+  useEffect(() => {
+    const name = siteMode === 'professional' ? 'Kristianto Wibawa' : 'Kris';
+    if (isAiMode) {
+      document.title = `Fable 5 • Claude AI`;
+    } else {
+      document.title = `${activeSection} • ${name}`;
+    }
+  }, [activeSection, siteMode, isAiMode]);
 
   // Efek transisi mode otonom dan professional/personal
   useEffect(() => {
@@ -24,6 +102,9 @@ function App() {
 
   return (
     <div className="app-container">
+      {/* Custom Cursor Ring & Dot */}
+      <div ref={cursorRingRef} className="custom-cursor"></div>
+      <div ref={cursorDotRef} className="custom-cursor-dot"></div>
       <nav style={{
         display: 'flex',
         justifyContent: 'space-between',
@@ -34,7 +115,7 @@ function App() {
       }}>
         {/* Kiri: Logo Nama */}
         <div style={{ 
-          fontFamily: siteMode === 'personal' ? 'var(--font-serif)' : 'var(--font-family)',
+          fontFamily: 'var(--font-family)',
           fontWeight: 400, 
           fontSize: '1.25rem',
           letterSpacing: '-0.025em',
@@ -141,11 +222,8 @@ function App() {
             {siteMode === 'professional' && (
               <>
                 <Projects />
-                <Skills />
               </>
             )}
-
-            <Contact />
           </>
         )}
       </main>

@@ -1,114 +1,94 @@
 {
-  "project": "Portofolio Website",
+  "project": "Portofolio Website Kristianto Wibawa (Kris)",
   "branchName": "ralph/portfolio-impl",
-  "description": "Website Portofolio Interaktif Minimalis & Bersih dengan React + Vite",
+  "description": "Website Portofolio Interaktif Kristianto Wibawa dengan Desain Estetika Cursor (Warm Cream, Ink, Cursor Orange, Tanpa Font Serif) Menampilkan Identitas Kris Asli Secara Lengkap",
   "userStories": [
     {
       "id": "US-001",
-      "title": "Pembersihan Boilerplate & Setup Proyek",
-      "description": "As a developer, I want to clean the default Vite boilerplate and setup basic styles so the repository is ready for coding.",
+      "title": "Konfigurasi Sistem Desain Cursor & Reset Tipografi",
+      "description": "As a visitor, I want the website to use the Cursor design system (warm cream background, ink text, Cursor Orange brand voltage, no serif fonts) so it feels premium and aligned with DESIGN.md.",
       "acceptanceCriteria": [
-        "Hapus berkas boilerplate yang tidak digunakan (src/assets/react.svg, src/App.css)",
-        "Buat file CSS dasar src/index.css dengan variabel warna dasar dan reset CSS",
-        "Tambahkan skrip typecheck di package.json: 'tsc --noEmit'",
-        "Verifikasi build lokal (npm run build) dan lint (npm run lint) berhasil"
+        "Terapkan warna dasar: Canvas (#f7f7f4) untuk terang, Canvas Dark (#1c1b16) untuk gelap.",
+        "Terapkan warna ink (#26251e) untuk teks display & body mode terang, dan warm white (#f7f7f4) untuk mode gelap.",
+        "Gunakan font Inter (sans-serif) sebagai pengganti CursorGothic untuk semua teks display & body (hapus font serif Garamond/Georgia/Cormorant).",
+        "Gunakan font JetBrains Mono untuk semua elemen kode, terminal, tanggal, dan metrik.",
+        "Gunakan hairline border 1px (#e6e5e0 / #2d2b24) tanpa bayangan (no drop shadows) untuk seluruh card."
       ],
       "priority": 1,
       "passes": true,
-      "notes": "Inisialisasi proyek React Vite TS berhasil, boilerplate dibersihkan, dependensi lucide-react terpasang, build & lint bersih."
+      "notes": "Menyiapkan sistem desain baru berbasis DESIGN.md."
     },
     {
       "id": "US-002",
-      "title": "Sistem Desain & Tema (Light/Dark Mode Toggle)",
-      "description": "As a visitor, I want to switch the website theme between Light Mode and Dark Mode with smooth transition so it is comfortable under any lighting.",
+      "title": "Mode Switcher Dinamis (Professional vs Personal)",
+      "description": "As a visitor, I want to toggle between Professional and Personal modes so I can see different facets of Kris's life.",
       "acceptanceCriteria": [
-        "Definisikan variabel CSS untuk Light dan Dark Mode di src/index.css",
-        "Buat komponen ThemeToggle dengan ikon matahari/bulan yang sesuai",
-        "Gunakan React state dan localStorage untuk menyimpan preferensi tema pengguna",
-        "Terapkan transisi CSS halus (0.3 detik) pada elemen-elemen global",
-        "Verifikasi typecheck dan lint berhasil"
+        "Sediakan tombol mode switcher di tengah navbar dengan ornamen SVG geometris yang sinkron dengan tema.",
+        "Mode Professional akan mengaktifkan tema gelap Cursor (Canvas Dark #1c1b16, teks terang, suasana produktif).",
+        "Mode Personal akan mengaktifkan tema terang Cursor (Canvas Warm Cream #f7f7f4, teks ink, suasana santai).",
+        "Simpan pilihan mode di localStorage agar tetap persisten saat halaman dimuat ulang."
       ],
       "priority": 2,
       "passes": true,
-      "notes": "Komponen ThemeToggle berhasil dibuat menggunakan state dan localStorage, variabel tema minimalis dikonfigurasi di CSS, transisi global 0.3s berjalan halus, build & lint bersih."
+      "notes": "Implementasi switcher mode dengan visual ornamen."
     },
     {
       "id": "US-003",
-      "title": "Halaman Beranda (Hero Section & Tentang Saya + Resume)",
-      "description": "As a visitor, I want to be welcomed with an elegant Hero section and About Me text so I immediately know the developer's core skills and can download their CV.",
+      "title": "Hero Section & Bio Kristianto Wibawa dengan Profil Foto Flip-Whirl",
+      "description": "As a visitor, I want to read Kris's bio and see an interactive profile photo that reflects his career details, tools, languages, and business philosophy.",
       "acceptanceCriteria": [
-        "Tampilkan nama, peran (Software Engineer & UI/UX Designer), dan slogan tipografi besar yang elegan",
-        "Buat sub-section 'Tentang Saya' yang ringkas di halaman beranda",
-        "Tambahkan tombol unduh CV / resume yang fungsional",
-        "Tambahkan animasi masuk (fade-in/slide-up) menggunakan CSS transisi",
-        "Tata letak responsif untuk perangkat mobile dan desktop",
-        "Verifikasi typecheck dan lint berhasil"
+        "Tampilkan nama 'Kristianto Wibawa' (Professional) atau 'Kris' (Personal) dalam font Inter display dengan tracking negatif.",
+        "Bio Professional: 'Software Engineer at Whiteopen Teknologi (Bandung). Graduate of STMIK LIKMI with a focus on Information Systems. Strong advocate for Ecosystem Play strategies, preferring one-time software payment models over monthly subscriptions.'",
+        "Mockup IDE Editor 'about.ts' menampilkan: techStack (Java Spring Boot, Microservices, Vue.js, Flutter), tools (WebStorm, Cursor, Copilot, Figma), languages (Indonesian - Native, English - Proficient), dan business philosophy.",
+        "Bio Personal: 'Dota 2 Carry player, Solana DeFi trader on Binance/Coinbase/OpenSea, JKT48/AKB48 fan (Wonderland 13th Anniversary, ALL IN TOUR), 7-week workout planner, and local Indonesian culinary enthusiast (bakso, nasi goreng, seblak, soto, satai).'",
+        "Buat foto profil interaktif yang berputar lambat/sedang/cepat menggunakan animasi SVG whirl (whirl-slow/medium/fast) dan melakukan flip 3D saat di-hover.",
+        "Gunakan representasi foto yang berbeda antara Professional (foto formal/gelap) dan Personal (foto santai/terang) saat flip dilakukan."
       ],
       "priority": 3,
       "passes": true,
-      "notes": "Komponen Hero.tsx berhasil dibuat, terintegrasi dengan tombol unduh resume dan tautan proyek, animasi masuk (fade-in-up) berjalan mulus di desktop & mobile, build & lint bersih."
+      "notes": "Hero section interaktif dengan data asli Kristianto Wibawa."
     },
     {
       "id": "US-004",
-      "title": "Galeri Proyek & Desain UI/UX (Interaktif dengan Modal)",
-      "description": "As a recruiter, I want to view coding and UI/UX design projects in interactive cards that open a detailed modal on click.",
+      "title": "Galeri Proyek 'Stuff I've Made' Kris",
+      "description": "As a visitor, I want to view Kris's 4 key projects: Beautypedia, Trustpos, System Integration (Google OAuth), and AI Development (MCP/Hermes/OpenClaw).",
       "acceptanceCriteria": [
-        "Tampilkan daftar proyek dalam bentuk grid responsif yang estetik",
-        "Gunakan label pembeda 'Software' atau 'UI/UX Design' pada masing-masing kartu proyek",
-        "Buat modal detail proyek yang menampilkan gambar, deskripsi, teknologi, link demo, dan link repo",
-        "Modal dapat ditutup dengan tombol tutup, klik di luar modal, atau tombol Escape",
-        "Navigasi modal ramah aksesibilitas (kelola fokus input)",
-        "Verifikasi typecheck dan lint berhasil"
+        "Tampilkan 4 proyek asli: Beautypedia (marketplace kosmetik + perancangan database + integrasi Xendit), Trustpos (migrasi monolith Hibernate ke microservices), System Integration (autentikasi Google OAuth + migration scripts + service layer logic), dan AI Development (konfigurasi AI Agents otonom + MCP dengan Hermes & OpenClaw).",
+        "Setiap card menggunakan border hairline 1px, latar belakang surface-card (#ffffff / #26251e), dan tanpa bayangan.",
+        "Tambahkan lencana status (Acquisition, Prototype, Active) dengan warna yang sesuai (misal: hijau untuk Acquisition, merah untuk Prototype).",
+        "Tambahkan ornamen sudut vintage menggunakan SVG dekoratif di setiap sudut kartu.",
+        "Gunakan font Inter untuk deskripsi proyek dan JetBrains Mono untuk tag teknologi."
       ],
       "priority": 4,
       "passes": true,
-      "notes": "Komponen Projects.tsx dibuat dengan filter kategori, modal interaktif, penanganan tombol Escape, manajemen fokus aksesibilitas, dan ikon SVG inline GitHub mandiri. Build & lint bersih."
+      "notes": "Stuff I've Made grid responsif bertema Cursor."
     },
     {
       "id": "US-005",
-      "title": "Visualisasi Keahlian (Skills Section Interaktif)",
-      "description": "As a visitor, I want to view skills organized into categories with clean visual indicators or interactive animations.",
+      "title": "Seksi Posts / Artikel Kris Berdasarkan Mode",
+      "description": "As a reader, I want to see Kris's writings classified by Professional and Personal modes.",
       "acceptanceCriteria": [
-        "Kelompokkan keahlian ke dalam 3 kategori: Frontend Engineering, UI/UX Design, dan Tools & Lainnya",
-        "Gunakan visualisasi interaktif (hover effect / progress circles dengan animasi isi saat masuk viewport)",
-        "Gunakan ikon-ikon modern (misal Lucide React) untuk setiap keahlian",
-        "Verifikasi typecheck dan lint berhasil"
+        "Tampilkan daftar tulisan asli milik Kris.",
+        "Posts Professional: Migrasi Monolith Hibernate ke Java 17, Perancangan Database Beautypedia, Integrasi Google OAuth, AI Agents & MCP.",
+        "Posts Personal: Solana DeFi Trading (Binance/Coinbase/OpenSea), Dota 2 Carry Guide, JKT48 Wonderland 13th Anniversary Concert Review, 7-Week Workout Schedule, Bandung Local Culinary Tour (Bakso, Nasi Goreng, Seblak, Soto, Satai).",
+        "Setiap entri post menampilkan judul, waktu baca, tanggal publikasi (font JetBrains Mono), dan efek hover tautan yang menyala (illuminated link)."
       ],
       "priority": 5,
       "passes": true,
-      "notes": "Komponen Skills.tsx dibuat dengan pengelompokan 3 kategori utama, progress bar teranimasi CSS murni (fillProgress), integrasi ikon Lucide, tata letak responsif, build & lint bersih."
+      "notes": "Daftar tulisan berdasarkan filter mode dinamis."
     },
     {
       "id": "US-006",
-      "title": "Halaman/Formulir Kontak (Validasi & Feedback Sukses)",
-      "description": "As a client, I want to send a message via an intuitive contact form so I can reach out for collaboration.",
+      "title": "Tombol Toggle Mode AI (Fable 5) di Navbar",
+      "description": "As a user, I want to access the AI Mode (Fable 5) toggle so I can trigger the custom interactive AI easter egg/mode.",
       "acceptanceCriteria": [
-        "Buat formulir kontak dengan input Nama, Email, Subjek, dan Pesan",
-        "Terapkan validasi input real-time dengan pesan kesalahan yang jelas",
-        "Tampilkan loading state dan pesan sukses/gagal yang teranimasi dengan baik setelah submit",
-        "Simulasikan pengiriman formulir dengan mock API (delay 1.5 detik) yang mencatat log data di konsol",
-        "Verifikasi typecheck dan lint berhasil"
+        "Pertahankan tombol toggle Mode AI (Fable 5) di sisi kanan navbar.",
+        "Gunakan skema warna Cursor Orange (#f54e00) untuk menandai status aktif Mode AI.",
+        "Saat aktif, tampilkan elemen dekoratif/efek interaktif bertema Fable 5 yang selaras dengan palet Cursor."
       ],
       "priority": 6,
       "passes": true,
-      "notes": "Komponen Contact.tsx dibuat dengan formulir kontak yang divalidasi, toast notifikasi melayang, simulasi pengiriman API 1.5s dengan logs konsol, tata letak responsif, build & lint bersih."
-    },
-    {
-      "id": "US-007",
-      "title": "Integrasi Konten & Struktur Bertema Thariq.io",
-      "description": "As a visitor, I want to switch between Professional and Personal modes and view styled projects, articles, and flip-whirl profile photo so I can enjoy a premium editorial experience.",
-      "acceptanceCriteria": [
-        "Tambahkan mode switcher (Professional vs Personal) di navbar tengah dengan ornamen SVG",
-        "Buat foto profil bulat yang berputar dengan SVG whirl (whirl-slow/medium/fast) dan dapat membalik (flip 3D) saat di-hover",
-        "Sesuaikan nama profil utama menjadi Kristianto Wibawa",
-        "Rancang seksi Posts (artikel/tulisan pendek) di bawah About",
-        "Ubah grid proyek menjadi 'Stuff I've Made' dengan lencana status (Acquisition, Prototype, Active) dan ornamen sudut vintage",
-        "Tambahkan pemisah halaman gradasi emas yang estetik",
-        "Verifikasi build lokal berhasil tanpa error TypeScript"
-      ],
-      "priority": 7,
-      "passes": false,
-      "notes": "Sedang diimplementasikan..."
+      "notes": "Mempertahankan fitur Mode AI (Fable 5) dengan pembaruan gaya."
     }
   ]
 }

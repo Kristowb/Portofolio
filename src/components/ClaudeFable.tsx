@@ -20,6 +20,27 @@ export default function ClaudeFable() {
 
   const terminalEndRef = useRef<HTMLDivElement | null>(null);
 
+  const triggerMatrixMode = () => {
+    document.body.classList.toggle('cyberpunk-mode');
+    const isActive = document.body.classList.contains('cyberpunk-mode');
+    
+    setToastMessage(
+      isActive 
+        ? '👾 MATRIX OVERRIDE: Fable 5 Kernel Hack Active!' 
+        : '🔒 SECURITY RESET: Standard Protocols Restored.'
+    );
+    setShowEasterEggToast(true);
+
+    setLogs((prev) => [
+      ...prev,
+      { text: '>>> OVERRIDE SYSTEM ACTIVE. MATRIX KERNEL HACK INJECTED.', type: 'error' }
+    ]);
+
+    setTimeout(() => {
+      setShowEasterEggToast(false);
+    }, 4000);
+  };
+
   // Scroll otomatis ke bawah terminal saat logs bertambah
   useEffect(() => {
     terminalEndRef.current?.scrollIntoView({ behavior: 'smooth' });
@@ -54,27 +75,6 @@ export default function ClaudeFable() {
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
-
-  const triggerMatrixMode = () => {
-    document.body.classList.toggle('cyberpunk-mode');
-    const isActive = document.body.classList.contains('cyberpunk-mode');
-    
-    setToastMessage(
-      isActive 
-        ? '👾 MATRIX OVERRIDE: Fable 5 Kernel Hack Active!' 
-        : '🔒 SECURITY RESET: Standard Protocols Restored.'
-    );
-    setShowEasterEggToast(true);
-
-    setLogs((prev) => [
-      ...prev,
-      { text: '>>> OVERRIDE SYSTEM ACTIVE. MATRIX KERNEL HACK INJECTED.', type: 'error' }
-    ]);
-
-    setTimeout(() => {
-      setShowEasterEggToast(false);
-    }, 4000);
-  };
 
   // Handle Logo Click Challenge
   const handleLogoClick = () => {

@@ -1,101 +1,112 @@
-# PRD: Website Portofolio Interaktif (Minimalis & Bersih)
+# PRD (Product Requirement Document): Portofolio Kristianto Wibawa (Gaya Cursor)
 
-## 1. Pendahuluan
-Dokumen ini menetapkan spesifikasi produk untuk pembuatan website portofolio pribadi. Proyek ini bertujuan untuk memamerkan proyek software engineering dan karya desain visual / UI/UX dengan estetika minimalis, bersih, dan elegan, yang mendukung mode gelap (Dark Mode) dan terang (Light Mode).
-
----
-
-## 2. Goals
-- Memiliki tampilan yang bersih, premium, dan estetik dengan tipografi modern (Inter/Outfit).
-- Menyediakan pengalaman pengguna yang dinamis melalui micro-animations (Vanilla CSS transitions).
-- Menampilkan portofolio software engineering sekaligus dokumentasi studi kasus desain UI/UX secara interaktif.
-- Membantu calon klien atau perekrut menghubungi pemilik melalui formulir kontak yang divalidasi.
-- Mendukung fitur aksesibilitas dasar dan performa pemuatan yang cepat.
+Dokumen ini mendefinisikan spesifikasi produk untuk pengerjaan ulang website portofolio pribadi **Kristianto Wibawa (Kris)** dengan mengadopsi estetika sistem desain Cursor (`DESIGN.md`).
 
 ---
 
-## 3. User Stories
-
-### US-001: Pembersihan Boilerplate & Setup Proyek
-**Description:** Sebagai developer, saya ingin membersihkan boilerplate bawaan Vite dan menyiapkan dependensi dasar agar proyek siap dikembangkan dengan struktur folder yang bersih.
-
-**Acceptance Criteria:**
-- [ ] Hapus berkas boilerplate yang tidak digunakan (`src/assets/react.svg`, `src/App.css`).
-- [ ] Buat file CSS dasar `src/index.css` yang mendefinisikan variabel warna dasar (light theme) dan reset CSS.
-- [ ] Buat skrip typecheck otonom di `package.json` (`"typecheck": "tsc --noEmit"`).
-- [ ] Lakukan verifikasi build lokal (`npm run build`) dan lint (`npm run lint`), pastikan semuanya berhasil tanpa error.
+## 1. Tujuan Produk (Product Goals)
+- **Kesesuaian Data 100%**: Menampilkan data profil profesional (Software Engineer di Whiteopen Teknologi, Spring Boot, Microservices, Vue.js, Flutter, tools JetBrains WebStorm/Cursor/Copilot/Figma, bahasa Indonesia/Inggris, filosofi bisnis Ecosystem Play) dan personal (Dota 2 Carry, Kripto Solana DeFi di Binance/Coinbase/OpenSea, JKT48/AKB48 fan konser Wonderland 13th Anniversary/ALL IN TOUR, kebugaran 7-week workout, kuliner lokal bakso/nasi goreng/seblak/soto/satai) milik Kristianto Wibawa secara lengkap.
+- **Sistem Desain Cursor**: Menerapkan palet warna warm cream (`#f7f7f4`) dan ink (`#26251e`), Cursor Orange (`#f54e00`), border hairline 1px, tanpa bayangan (no drop shadows), dan tipografi Inter & JetBrains Mono (font serif dihilangkan).
+- **Pengalaman Pengguna Interaktif**: Menyediakan switcher mode Professional/Personal yang dinamis, foto profil 3D flip-whirl, dan transisi halus khas Cursor.
+- **Mode AI (Fable 5)**: Mempertahankan tombol toggle Mode AI (Fable 5) dengan penyesuaian visual agar tetap menyatu dengan desain Cursor.
 
 ---
 
-### US-002: Sistem Desain & Tema (Light/Dark Mode Toggle)
-**Description:** Sebagai pengunjung, saya ingin dapat mengganti tema website antara Light Mode (default) dan Dark Mode dengan transisi yang halus agar nyaman dibaca dalam kondisi pencahayaan apa pun.
+## 2. Fitur & Cerita Pengguna (User Stories)
 
-**Acceptance Criteria:**
-- [ ] Definisikan CSS variable untuk kedua tema di `src/index.css` (latar belakang bersih/terang, teks kontras tinggi, aksen warna elegan, serta versi dark mode-nya).
-- [ ] Buat komponen `ThemeToggle` yang menampilkan ikon yang sesuai (misalnya, matahari/bulan).
-- [ ] Gunakan React state dan `localStorage` untuk menyimpan preferensi tema pengguna.
-- [ ] Tambahkan transisi CSS halus (`transition: background-color 0.3s ease, color 0.3s ease`) pada elemen global.
-- [ ] Pastikan typecheck dan lint berhasil.
+### US-001: Konfigurasi Sistem Desain Cursor & Reset Tipografi
+**Deskripsi:** Sebagai pengunjung, saya ingin website menampilkan gaya estetika minimalis Cursor sehingga terasa premium, bersih, dan konsisten dengan panduan desain.
 
----
-
-### US-003: Halaman Beranda (Hero Section & Tentang Saya + Resume)
-**Description:** Sebagai pengunjung, saya ingin disambut dengan bagian Hero yang menarik saat pertama kali membuka website agar segera mengetahui keahlian utama pemilik dan dapat mengunduh CV/resume dengan mudah.
-
-**Acceptance Criteria:**
-- [ ] Tampilkan tipografi besar yang elegan berisi nama, peran utama (Software Engineer & UI/UX Designer), dan slogan singkat yang menarik.
-- [ ] Buat sub-section "Tentang Saya" yang ringkas yang menjelaskan latar belakang profesional secara singkat.
-- [ ] Sediakan tombol "Download CV / Resume" yang fungsional dan bergaya premium.
-- [ ] Tambahkan animasi masuk (fade-in/slide-up) menggunakan CSS transisi untuk memicu kesan premium pertama kali.
-- [ ] Pastikan tata letak responsif dan typecheck berhasil.
+**Kriteria Penerimaan:**
+- Menggunakan variabel warna dari `DESIGN.md` untuk mode terang dan gelap Cursor.
+  - Terang: Canvas Warm Cream (`#f7f7f4`), Ink (`#26251e`), Body (`#5a5852`), Muted (`#807d72`), Hairline (`#e6e5e0`).
+  - Gelap (Professional): Canvas Dark (`#1c1b16`), Ink/Teks Terang (`#f7f7f4`), Body (`#a09c92`), Hairline (`#2d2b24`).
+- Menghapus kelas font serif (`.font-garamond`, `.font-cormorant`, dsb.) dari seluruh elemen website.
+- Menggunakan font **Inter** untuk display dan running text, dengan tracking negatif (`letter-spacing: -1.5%` sampai `-3%`) pada teks display.
+- Menggunakan font **JetBrains Mono** untuk semua blok kode, tab editor, tanggal, dan informasi metrik.
+- Menghilangkan semua bayangan box-shadow dan menggunakan border hairline 1px tipis di setiap komponen kartu (card).
 
 ---
 
-### US-004: Galeri Proyek & Desain UI/UX (Interaktif dengan Modal)
-**Description:** Sebagai perekrut, saya ingin melihat daftar proyek coding dan karya desain UI/UX dalam bentuk kartu-kartu interaktif yang dapat diklik untuk membuka modal detail proyek agar dapat membaca deskripsi, teknologi, serta melihat screenshot.
+### US-002: Mode Switcher Dinamis (Professional vs Personal)
+**Deskripsi:** Sebagai pengunjung, saya ingin dapat beralih antara Mode Professional dan Mode Personal dengan mudah untuk melihat sisi karir dan sisi personal Kris.
 
-**Acceptance Criteria:**
-- [ ] Tampilkan daftar proyek dalam bentuk grid responsif yang estetik (hover effect: scale/shadow tipis).
-- [ ] Setiap kartu proyek harus memiliki label pembeda: "Software" atau "UI/UX Design".
-- [ ] Saat kartu diklik, buka sebuah modal interaktif (glassmorphism/overlay minimalis) yang menampilkan detail proyek: ringkasan, gambar/mockup, teknologi/alat yang digunakan, link live demo, dan link repositori (jika ada).
-- [ ] Modal dapat ditutup dengan tombol tutup ("x"), menekan tombol Escape, atau mengklik di luar area modal.
-- [ ] Pastikan navigasi modal ramah aksesibilitas (fokus terkelola) dan typecheck berhasil.
-
----
-
-### US-005: Visualisasi Keahlian (Skills Section Interaktif)
-**Description:** Sebagai pengunjung, saya ingin melihat keahlian pemilik yang dikelompokkan secara teratur dengan visualisasi interaktif agar mudah dipahami secara visual.
-
-**Acceptance Criteria:**
-- [ ] Buat layout grid yang mengelompokkan keahlian ke dalam 3 kategori: "Frontend Engineering", "UI/UX Design", dan "Tools & Lainnya".
-- [ ] Gunakan visualisasi interaktif seperti kartu keahlian yang menyala/berubah warna saat di-hover, atau grafik lingkaran/persentase minimalis yang memiliki animasi isi (fill-in animation) saat masuk ke viewport.
-- [ ] Integrasikan ikon modern untuk masing-masing keahlian (menggunakan Lucide React atau sejenisnya).
-- [ ] Pastikan tata letak rapi, responsif, dan typecheck berhasil.
+**Kriteria Penerimaan:**
+- Tombol toggle berada di tengah-tengah area navigasi atas (navbar).
+- Diapit oleh ornamen SVG geometris khas di sebelah kiri dan kanan toggle.
+- Mode Professional: Mengaktifkan tema gelap (Dark Mode) Cursor secara instan.
+- Mode Personal: Mengaktifkan tema terang (Light Mode/Warm Cream) Cursor secara instan.
+- Pilihan mode disimpan di `localStorage` agar tetap persisten saat halaman disegarkan.
 
 ---
 
-### US-006: Halaman/Formulir Kontak (Validasi & Feedback Sukses)
-**Description:** Sebagai calon klien, saya ingin mengirim pesan melalui formulir kontak yang intuitif di website agar dapat berkolaborasi atau menawarkan pekerjaan secara langsung.
+### US-003: Hero & Bio Kris dengan Foto Profil Flip-Whirl
+**Deskripsi:** Sebagai pengunjung, saya ingin membaca biografi Kristianto Wibawa dan melihat foto profilnya yang interaktif dan dinamis.
 
-**Acceptance Criteria:**
-- [ ] Buat formulir kontak dengan input: Nama, Email, Subjek, dan Pesan.
-- [ ] Terapkan validasi input secara real-time (email valid, nama & pesan tidak boleh kosong) dengan pesan error yang jelas.
-- [ ] Tampilkan status pengiriman (loading state) dan pesan sukses/gagal yang dianimasikan dengan indah (toast/notification banner minimalis) setelah tombol submit ditekan.
-- [ ] Simulasikan pengiriman form dengan mock API (delay 1.5 detik) yang berhasil menyimpan/menampilkan data di console log.
-- [ ] Pastikan formulir ramah aksesibilitas dan typecheck berhasil.
+**Kriteria Penerimaan:**
+- Tampilkan nama besar "Kristianto Wibawa" (mode Professional) atau "Kris" (mode Personal) menggunakan font Inter display.
+- Konten Bio Professional:
+  > *"Software Engineer at Whiteopen Teknologi (Bandung). Graduate of STMIK LIKMI with a focus on Information Systems. Strong advocate for Ecosystem Play strategies, preferring one-time software payment models over monthly subscriptions."*
+- Mockup IDE Editor `about.ts` memuat detail:
+  - `techStack`: Java (Spring Boot / Microservices), Vue.js, Flutter.
+  - `tools`: JetBrains WebStorm, Cursor, GitHub Copilot, Figma.
+  - `languages`: Indonesian (Native), English (Proficient).
+  - `philosophy`: Ecosystem Play (One-time Software Payment).
+- Konten Bio Personal:
+  > *"Dota 2 Carry player, Solana DeFi trader on Binance/Coinbase/OpenSea, JKT48/AKB48 fan (Wonderland 13th Anniversary and ALL IN TOUR), 7-week workout planner, and local Indonesian culinary enthusiast (bakso, nasi goreng, seblak, soto, satai)."*
+- Foto Profil memuat efek interaktif:
+  - Berputar lambat/sedang/cepat dengan SVG whirl-slow/medium/fast.
+  - Animasi putaran terjeda (pause) saat mouse melakukan hover di atas foto.
+  - Melakukan flip 3D saat di-hover untuk menampilkan foto personal (terang/santai) atau professional (gelap/formal).
 
 ---
 
-## 4. Persyaratan Fungsional (FR)
-- **FR-1**: Website harus memiliki navigasi yang menempel di bagian atas (sticky navbar) dengan tautan cepat (anchor links) ke bagian: Beranda, Proyek, Keahlian, dan Kontak.
-- **FR-2**: Preferensi tema harus tersimpan secara lokal dan otomatis dimuat pada kunjungan berikutnya.
-- **FR-3**: Modal detail proyek harus dapat ditutup dengan menekan tombol `Escape` di keyboard.
-- **FR-4**: Seluruh tautan eksternal (sosial media, repositori, resume) harus terbuka di tab baru dengan atribut `rel="noopener noreferrer"`.
+### US-004: Grid Proyek 'Stuff I've Made' Kris
+**Deskripsi:** Sebagai perekrut atau kolaborator, saya ingin melihat proyek portofolio utama milik Kris secara rapi dan interaktif.
+
+**Kriteria Penerimaan:**
+- Menampilkan 4 proyek utama:
+  1. **Beautypedia**: *"A cosmetics marketplace platform. Designed the database structure and integrated Xendit payment gateway."*
+  2. **Trustpos**: *"Led the complete migration of the system from a monolith Hibernate architecture to a microservices architecture."*
+  3. **System Integration**: *"Implemented Google OAuth authentication, including writing migration scripts and service layer logic."*
+  4. **AI Development**: *"Configured autonomous AI Agents and Model Context Protocol (MCP) using Hermes and OpenClaw."* (Status: Prototype)
+- Setiap kartu memiliki lencana status: **Active** (hijau/success) atau **Prototype** (merah/error).
+- Setiap kartu memiliki hairline border 1px dan ornamen vintage SVG di 4 sudut luar kartu.
+- Tautan proyek mengarah ke URL eksternal atau deskripsi detail yang valid.
 
 ---
 
-## 5. Kebutuhan Non-Fungsional (NFR)
-- **Desain**: Gaya minimalis, bersih (clean light background untuk light mode, dan deep dark gray/slate background untuk dark mode).
-- **Tipografi**: Menggunakan Google Fonts "Inter" atau "Outfit" melalui integrasi stylesheet.
-- **Responsivitas**: Berfungsi sempurna pada resolusi layar mulai dari 320px (Mobile SE) hingga 1920px (Desktop Ultra).
-- **Performa**: Harus lolos proses build webpack/vite tanpa peringatan kritis dan lolos typecheck TypeScript (`tsc --noEmit`).
+### US-005: Seksi Posts / Artikel Kris Berdasarkan Mode
+**Deskripsi:** Sebagai pembaca, saya ingin melihat daftar tulisan Kris yang teratur dan rapi sesuai mode aktif.
+
+**Kriteria Penerimaan:**
+- Menampilkan daftar tulisan asli Kris:
+  - **Professional Posts**:
+    1. *Migrating from Monolith Hibernate to Spring Boot with Java 17* (8 min read, 15 Mar 2026)
+    2. *Designing a Highly Scalable Database for Beautypedia Cosmetic Marketplace* (6 min read, 2 Feb 2026)
+    3. *Implementing Clean Google OAuth Authentication in Spring Boot* (5 min read, 12 Jan 2026)
+    4. *Configuring Autonomous AI Agents and MCP using Hermes and OpenClaw* (7 min read, 3 Dec 2025)
+  - **Personal Posts**:
+    1. *My Solana DeFi Trading Strategy: Navigating the SOL Ecosystem on Binance, Coinbase, and OpenSea* (4 min read, 28 May 2026, Pinned)
+    2. *Playing Carry in Dota 2: Tips for Grinding MMR* (5 min read, 14 Apr 2026)
+    3. *Concert Review: Wonderland JKT48 13th Anniversary and ALL IN TOUR* (6 min read, 20 Mar 2026)
+    4. *Survival Guide: Surviving the Intense 7-Week Workout Schedule* (3 min read, 10 Feb 2026)
+    5. *Bandung Culinary Tour: Finding the Best Bakso, Nasi Goreng, Seblak, Soto, and Satai* (4 min read, 15 Jan 2026)
+- Setiap entri pos menggunakan font Inter untuk judul, efek link menyala (illuminated link), dan font JetBrains Mono untuk metrik/waktu baca/tanggal.
+
+---
+
+### US-006: Tombol Toggle Mode AI (Fable 5)
+**Deskripsi:** Sebagai pengguna, saya ingin dapat beralih ke Mode AI (Fable 5) dari navbar untuk mengaktifkan fitur tambahan interaktif.
+
+**Kriteria Penerimaan:**
+- Tombol toggle berlabel "Mode AI (Fable 5)" diletakkan di sisi kanan navbar.
+- Skema warna toggle dan UI aktif menggunakan warna Cursor Orange (`#f54e00`) agar terintegrasi indah dengan tema utama.
+- Menjaga fungsi interaktif Fable 5 yang sudah dibuat sebelumnya.
+
+---
+
+## 3. Persyaratan Non-Fungsional (Non-Functional Requirements)
+- **Tipografi**: Bebas dari font serif. Gunakan Inter dan JetBrains Mono.
+- **Responsivitas**: Tampilan di desktop (tiga kolom proyek) harus runtuh dengan indah menjadi dua kolom pada tablet, dan satu kolom pada perangkat mobile.
+- **Performa**: Waktu pemuatan halaman cepat, tidak ada dependensi yang tidak terpakai, dan lolos uji `npm run build` serta `npm run typecheck` tanpa kesalahan.

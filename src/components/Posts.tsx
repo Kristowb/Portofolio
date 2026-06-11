@@ -10,18 +10,16 @@ export default function Posts({ siteMode }: PostsProps) {
   // Filter posts berdasarkan kecocokan tema (professional vs personal)
   const filteredPosts = postsData.filter((post) => {
     if (isProd) {
-      // Tampilkan artikel profesional
-      return post.slug === 'sorting' || post.slug === 'interpretability';
+      return post.id.startsWith('prof-');
     } else {
-      // Tampilkan artikel personal/reflektif
-      return post.slug === 'clay-and-light' || post.slug === 'sparse-rewards' || post.slug === 'fast';
+      return post.id.startsWith('pers-');
     }
   });
 
   return (
-    <section className="editorial-section fade-in-up">
+    <section id="posts" className="editorial-section fade-in-up">
       <div className="editorial-left">
-        <h2>Posts</h2>
+        <h2 style={{ fontFamily: 'var(--font-family)' }}>Posts</h2>
       </div>
       <div className="editorial-right">
         <ul className="posts-list" style={{ listStyle: 'none', padding: 0, margin: 0 }}>
@@ -37,6 +35,7 @@ export default function Posts({ siteMode }: PostsProps) {
                   href={`/blog/${post.slug}`} 
                   onClick={(e) => e.preventDefault()} 
                   className="post-title-link illuminated-link"
+                  style={{ fontFamily: 'var(--font-family)' }}
                 >
                   {post.title}
                 </a>
@@ -46,7 +45,7 @@ export default function Posts({ siteMode }: PostsProps) {
               </div>
               <time 
                 dateTime={post.date} 
-                style={{ fontSize: '0.85rem', color: 'var(--text-muted)', whiteSpace: 'nowrap' }}
+                style={{ fontSize: '0.85rem', color: 'var(--text-muted)', whiteSpace: 'nowrap', fontFamily: 'var(--font-mono)' }}
               >
                 {post.date}
               </time>

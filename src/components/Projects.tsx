@@ -69,7 +69,7 @@ export default function Projects() {
   }, [selectedProject]);
 
   return (
-    <section id="proyek" className="editorial-section fade-in-up">
+    <section id="projects" className="editorial-section fade-in-up">
       <div className="editorial-left">
         <h2>Stuff I've Made</h2>
       </div>
@@ -95,7 +95,7 @@ export default function Projects() {
                   loading="lazy"
                 />
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem', padding: '1.25rem 1.25rem 1.5rem 1.25rem', flexGrow: 1 }}>
-                  <h3 className="project-card-title" style={{ fontFamily: 'var(--font-serif)', fontSize: '1.2rem', marginBottom: '0.25rem' }}>
+                  <h3 className="project-card-title" style={{ fontFamily: 'var(--font-family)', fontSize: '1.2rem', marginBottom: '0.25rem' }}>
                     {project.title}
                   </h3>
                   <p className="project-card-summary" style={{ fontSize: '0.85rem', lineHeight: '1.5', margin: 0, flexGrow: 1 }}>
@@ -148,7 +148,7 @@ export default function Projects() {
                 {selectedProject.status && (
                   <span className="modal-badge">{selectedProject.status}</span>
                 )}
-                <h3 id="modal-title" className="modal-project-title" style={{ fontFamily: 'var(--font-serif)' }}>
+                <h3 id="modal-title" className="modal-project-title" style={{ fontFamily: 'var(--font-family)' }}>
                   {selectedProject.title}
                 </h3>
                 
