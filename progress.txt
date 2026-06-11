@@ -18,3 +18,10 @@
 - **Pembelajaran untuk iterasi berikutnya:**
   - Pola yang ditemukan: Di React, properti gaya menggunakan sintaks camelCase (seperti `justifyContent` alih-alih `justify-content`). Penting untuk memverifikasi camelCase ini agar compiler/typecheck TypeScript tidak error.
 ---
+
+## 2026-06-11 - US-003
+- Apa yang diimplementasikan: Pembuatan komponen Hero.tsx yang modular dengan tipografi elegan, sub-section "Tentang Saya", tombol unduh resume dan tombol "Lihat Proyek", serta styling responsif di CSS dengan animasi fade-in-up.
+- File yang diubah: src/components/Hero.tsx, src/App.tsx, src/index.css, prd.json.
+- **Pembelajaran untuk iterasi berikutnya:**
+  - Pola yang ditemukan: Sejak React 17+, impor eksplisit `React` dari 'react' tidak lagi diwajibkan untuk file JSX. Meninggalkan impor ini ketika tidak digunakan akan memicu peringatan/error variabel tak terpakai (TS6133) oleh kompiler TypeScript. Selalu impor hanya modul/fungsi yang dibutuhkan.
+---

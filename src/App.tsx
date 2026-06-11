@@ -1,4 +1,5 @@
 import ThemeToggle from './components/ThemeToggle';
+import Hero from './components/Hero';
 
 function App() {
   return (
@@ -15,10 +16,9 @@ function App() {
         <ThemeToggle />
       </nav>
 
-      <header style={{ padding: '2rem 0', textAlign: 'center' }}>
-        <h1>Portfolio Website</h1>
-        <p style={{ color: 'var(--text-muted)' }}>Website portofolio interaktif sedang dibangun...</p>
-      </header>
+      <main>
+        <Hero />
+      </main>
     </div>
   );
 }

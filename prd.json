@@ -45,8 +45,8 @@
         "Verifikasi typecheck dan lint berhasil"
       ],
       "priority": 3,
-      "passes": false,
-      "notes": ""
+      "passes": true,
+      "notes": "Komponen Hero.tsx berhasil dibuat, terintegrasi dengan tombol unduh resume dan tautan proyek, animasi masuk (fade-in-up) berjalan mulus di desktop & mobile, build & lint bersih."
     },
     {
       "id": "US-004",
