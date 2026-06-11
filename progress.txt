@@ -1,0 +1,13 @@
+## Codebase Patterns
+- Selalu jalankan `npm run typecheck` dan `npm run lint` sebelum melakukan commit.
+- Gunakan React state yang bersih dan simpan state persisten (seperti tema) di localStorage.
+- Pisahkan komponen UI secara modular dalam subdirektori `src/components`.
+
+---
+
+## 2026-06-11 - US-001
+- Apa yang diimplementasikan: Pembersihan boilerplate Vite bawaan, pembuatan skrip typecheck di package.json, penginstalan lucide-react, penyusunan reset CSS awal, dan konfigurasi fonts Inter di index.html.
+- File yang diubah: src/App.tsx, src/index.css, index.html, package.json, package-lock.json.
+- **Pembelajaran untuk iterasi berikutnya:**
+  - Pola yang ditemukan: Skrip `npm run build` menjalankan `tsc -b` secara default di Vite + React TS, namun menambahkan `"typecheck": "tsc --noEmit"` memberikan pengecekan yang lebih cepat dan mandiri untuk siklus kualitas Ralph.
+---

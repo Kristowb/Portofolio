@@ -1,0 +1,97 @@
+{
+  "project": "Portofolio Website",
+  "branchName": "ralph/portfolio-impl",
+  "description": "Website Portofolio Interaktif Minimalis & Bersih dengan React + Vite",
+  "userStories": [
+    {
+      "id": "US-001",
+      "title": "Pembersihan Boilerplate & Setup Proyek",
+      "description": "As a developer, I want to clean the default Vite boilerplate and setup basic styles so the repository is ready for coding.",
+      "acceptanceCriteria": [
+        "Hapus berkas boilerplate yang tidak digunakan (src/assets/react.svg, src/App.css)",
+        "Buat file CSS dasar src/index.css dengan variabel warna dasar dan reset CSS",
+        "Tambahkan skrip typecheck di package.json: 'tsc --noEmit'",
+        "Verifikasi build lokal (npm run build) dan lint (npm run lint) berhasil"
+      ],
+      "priority": 1,
+      "passes": true,
+      "notes": "Inisialisasi proyek React Vite TS berhasil, boilerplate dibersihkan, dependensi lucide-react terpasang, build & lint bersih."
+    },
+    {
+      "id": "US-002",
+      "title": "Sistem Desain & Tema (Light/Dark Mode Toggle)",
+      "description": "As a visitor, I want to switch the website theme between Light Mode and Dark Mode with smooth transition so it is comfortable under any lighting.",
+      "acceptanceCriteria": [
+        "Definisikan variabel CSS untuk Light dan Dark Mode di src/index.css",
+        "Buat komponen ThemeToggle dengan ikon matahari/bulan yang sesuai",
+        "Gunakan React state dan localStorage untuk menyimpan preferensi tema pengguna",
+        "Terapkan transisi CSS halus (0.3 detik) pada elemen-elemen global",
+        "Verifikasi typecheck dan lint berhasil"
+      ],
+      "priority": 2,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-003",
+      "title": "Halaman Beranda (Hero Section & Tentang Saya + Resume)",
+      "description": "As a visitor, I want to be welcomed with an elegant Hero section and About Me text so I immediately know the developer's core skills and can download their CV.",
+      "acceptanceCriteria": [
+        "Tampilkan nama, peran (Software Engineer & UI/UX Designer), dan slogan tipografi besar yang elegan",
+        "Buat sub-section 'Tentang Saya' yang ringkas di halaman beranda",
+        "Tambahkan tombol unduh CV / resume yang fungsional",
+        "Tambahkan animasi masuk (fade-in/slide-up) menggunakan CSS transisi",
+        "Tata letak responsif untuk perangkat mobile dan desktop",
+        "Verifikasi typecheck dan lint berhasil"
+      ],
+      "priority": 3,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-004",
+      "title": "Galeri Proyek & Desain UI/UX (Interaktif dengan Modal)",
+      "description": "As a recruiter, I want to view coding and UI/UX design projects in interactive cards that open a detailed modal on click.",
+      "acceptanceCriteria": [
+        "Tampilkan daftar proyek dalam bentuk grid responsif yang estetik",
+        "Gunakan label pembeda 'Software' atau 'UI/UX Design' pada masing-masing kartu proyek",
+        "Buat modal detail proyek yang menampilkan gambar, deskripsi, teknologi, link demo, dan link repo",
+        "Modal dapat ditutup dengan tombol tutup, klik di luar modal, atau tombol Escape",
+        "Navigasi modal ramah aksesibilitas (kelola fokus input)",
+        "Verifikasi typecheck dan lint berhasil"
+      ],
+      "priority": 4,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-005",
+      "title": "Visualisasi Keahlian (Skills Section Interaktif)",
+      "description": "As a visitor, I want to view skills organized into categories with clean visual indicators or interactive animations.",
+      "acceptanceCriteria": [
+        "Kelompokkan keahlian ke dalam 3 kategori: Frontend Engineering, UI/UX Design, dan Tools & Lainnya",
+        "Gunakan visualisasi interaktif (hover effect / progress circles dengan animasi isi saat masuk viewport)",
+        "Gunakan ikon-ikon modern (misal Lucide React) untuk setiap keahlian",
+        "Verifikasi typecheck dan lint berhasil"
+      ],
+      "priority": 5,
+      "passes": false,
+      "notes": ""
+    },
+    {
+      "id": "US-006",
+      "title": "Halaman/Formulir Kontak (Validasi & Feedback Sukses)",
+      "description": "As a client, I want to send a message via an intuitive contact form so I can reach out for collaboration.",
+      "acceptanceCriteria": [
+        "Buat formulir kontak dengan input Nama, Email, Subjek, dan Pesan",
+        "Terapkan validasi input real-time dengan pesan kesalahan yang jelas",
+        "Tampilkan loading state dan pesan sukses/gagal yang teranimasi dengan baik setelah submit",
+        "Simulasikan pengiriman formulir dengan mock API (delay 1.5 detik) yang mencatat log data di konsol",
+        "Verifikasi typecheck dan lint berhasil"
+      ],
+      "priority": 6,
+      "passes": false,
+      "notes": ""
+    }
+  ]
+}
