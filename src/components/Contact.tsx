@@ -105,91 +105,92 @@ export default function Contact() {
   };
 
   return (
-    <section id="kontak" className="contact-section fade-in-up">
-      <div className="section-header">
-        <h2 className="section-title">Hubungi Saya</h2>
-        <p className="section-subtitle">Punya proyek menarik, tawaran pekerjaan, atau hanya ingin menyapa? Silakan kirim pesan Anda.</p>
+    <section id="kontak" className="editorial-section fade-in-up">
+      <div className="editorial-left">
+        <h2>Contact</h2>
       </div>
 
-      <div className="contact-container">
-        <form onSubmit={handleSubmit} className="contact-form" noValidate>
-          <div className="form-group-row">
+      <div className="editorial-right">
+        <div className="contact-container" style={{ maxWidth: '650px', width: '100%' }}>
+          <form onSubmit={handleSubmit} className="contact-form" noValidate>
+            <div className="form-group-row">
+              <div className="form-group">
+                <label htmlFor="name" className="form-label">Nama Lengkap</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={fields.name}
+                  onChange={handleChange}
+                  className={`form-input ${errors.name ? 'input-error' : ''}`}
+                  placeholder="Nama Anda"
+                  disabled={isSubmitting}
+                />
+                {errors.name && <span className="error-message" role="alert">{errors.name}</span>}
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="email" className="form-label">Alamat Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={fields.email}
+                  onChange={handleChange}
+                  className={`form-input ${errors.email ? 'input-error' : ''}`}
+                  placeholder="nama@email.com"
+                  disabled={isSubmitting}
+                />
+                {errors.email && <span className="error-message" role="alert">{errors.email}</span>}
+              </div>
+            </div>
+
             <div className="form-group">
-              <label htmlFor="name" className="form-label">Nama Lengkap</label>
+              <label htmlFor="subject" className="form-label">Subjek</label>
               <input
                 type="text"
-                id="name"
-                name="name"
-                value={fields.name}
+                id="subject"
+                name="subject"
+                value={fields.subject}
                 onChange={handleChange}
-                className={`form-input ${errors.name ? 'input-error' : ''}`}
-                placeholder="Nama Anda"
+                className={`form-input ${errors.subject ? 'input-error' : ''}`}
+                placeholder="Tawaran Kolaborasi / Pertanyaan"
                 disabled={isSubmitting}
               />
-              {errors.name && <span className="error-message" role="alert">{errors.name}</span>}
+              {errors.subject && <span className="error-message" role="alert">{errors.subject}</span>}
             </div>
 
             <div className="form-group">
-              <label htmlFor="email" className="form-label">Alamat Email</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={fields.email}
+              <label htmlFor="message" className="form-label">Pesan</label>
+              <textarea
+                id="message"
+                name="message"
+                value={fields.message}
                 onChange={handleChange}
-                className={`form-input ${errors.email ? 'input-error' : ''}`}
-                placeholder="nama@email.com"
+                rows={5}
+                className={`form-textarea ${errors.message ? 'input-error' : ''}`}
+                placeholder="Tulis pesan Anda di sini..."
                 disabled={isSubmitting}
-              />
-              {errors.email && <span className="error-message" role="alert">{errors.email}</span>}
+              ></textarea>
+              {errors.message && <span className="error-message" role="alert">{errors.message}</span>}
             </div>
-          </div>
 
-          <div className="form-group">
-            <label htmlFor="subject" className="form-label">Subjek</label>
-            <input
-              type="text"
-              id="subject"
-              name="subject"
-              value={fields.subject}
-              onChange={handleChange}
-              className={`form-input ${errors.subject ? 'input-error' : ''}`}
-              placeholder="Tawaran Kolaborasi / Pertanyaan"
+            <button
+              type="submit"
+              className="btn btn-primary btn-submit"
               disabled={isSubmitting}
-            />
-            {errors.subject && <span className="error-message" role="alert">{errors.subject}</span>}
-          </div>
-
-          <div className="form-group">
-            <label htmlFor="message" className="form-label">Pesan</label>
-            <textarea
-              id="message"
-              name="message"
-              value={fields.message}
-              onChange={handleChange}
-              rows={5}
-              className={`form-textarea ${errors.message ? 'input-error' : ''}`}
-              placeholder="Tulis pesan Anda di sini..."
-              disabled={isSubmitting}
-            ></textarea>
-            {errors.message && <span className="error-message" role="alert">{errors.message}</span>}
-          </div>
-
-          <button
-            type="submit"
-            className="btn btn-primary btn-submit"
-            disabled={isSubmitting}
-            style={{ width: '100%', justifyContent: 'center' }}
-          >
-            {isSubmitting ? (
-              <span className="spinner-loader">Mengirim...</span>
-            ) : (
-              <>
-                Kirim Pesan <Send size={14} style={{ marginLeft: '6px' }} />
-              </>
-            )}
-          </button>
-        </form>
+              style={{ width: '100%', justifyContent: 'center' }}
+            >
+              {isSubmitting ? (
+                <span className="spinner-loader">Mengirim...</span>
+              ) : (
+                <>
+                  Kirim Pesan <Send size={14} style={{ marginLeft: '6px' }} />
+                </>
+              )}
+            </button>
+          </form>
+        </div>
       </div>
 
       {/* Toast Notifikasi Sukses */}

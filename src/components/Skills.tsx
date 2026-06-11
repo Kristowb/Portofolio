@@ -74,50 +74,51 @@ const getSkillColor = (name: string): string => {
 
 export default function Skills() {
   return (
-    <section id="keahlian" className="skills-section fade-in-up">
-      <div className="section-header">
-        <h2 className="section-title">Keahlian Utama</h2>
-        <p className="section-subtitle">Teknologi, alat, dan disiplin desain yang saya gunakan untuk membawa ide menjadi kenyataan</p>
+    <section id="keahlian" className="editorial-section fade-in-up">
+      <div className="editorial-left">
+        <h2>Skills</h2>
       </div>
 
-      <div className="skills-container">
-        {skillsData.map((category) => (
-          <div key={category.title} className="skills-category-card">
-            <h3 className="skills-category-title">{category.title}</h3>
-            
-            <div className="skills-list">
-              {category.skills.map((skill) => {
-                const IconComponent = skill.icon;
-                return (
-                  <div key={skill.name} className="skill-item">
-                    <div className="skill-header">
-                      <div className="skill-name-wrapper">
-                        <IconComponent className="skill-icon" size={18} />
-                        <span className="skill-name">{skill.name}</span>
+      <div className="editorial-right">
+        <div className="skills-container" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '2rem' }}>
+          {skillsData.map((category) => (
+            <div key={category.title} className="skills-category-card">
+              <h3 className="skills-category-title">{category.title}</h3>
+              
+              <div className="skills-list">
+                {category.skills.map((skill) => {
+                  const IconComponent = skill.icon;
+                  return (
+                    <div key={skill.name} className="skill-item">
+                      <div className="skill-header">
+                        <div className="skill-name-wrapper">
+                          <IconComponent className="skill-icon" size={18} />
+                          <span className="skill-name">{skill.name}</span>
+                        </div>
+                        <span className="skill-percentage">{skill.level}%</span>
                       </div>
-                      <span className="skill-percentage">{skill.level}%</span>
+                      
+                      {/* Progress Bar Interaktif */}
+                      <div className="skill-bar-bg">
+                        <div
+                          className="skill-bar-fill"
+                          style={{ 
+                            '--skill-level': `${skill.level}%`,
+                            '--skill-color': getSkillColor(skill.name)
+                          } as React.CSSProperties}
+                          role="progressbar"
+                          aria-valuenow={skill.level}
+                          aria-valuemin={0}
+                          aria-valuemax={100}
+                        ></div>
+                      </div>
                     </div>
-                    
-                    {/* Progress Bar Interaktif */}
-                    <div className="skill-bar-bg">
-                      <div
-                        className="skill-bar-fill"
-                        style={{ 
-                          '--skill-level': `${skill.level}%`,
-                          '--skill-color': getSkillColor(skill.name)
-                        } as React.CSSProperties}
-                        role="progressbar"
-                        aria-valuenow={skill.level}
-                        aria-valuemin={0}
-                        aria-valuemax={100}
-                      ></div>
-                    </div>
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );

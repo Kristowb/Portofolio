@@ -1,41 +1,39 @@
 import { useState, useEffect, useRef } from 'react';
 import { X, ExternalLink } from 'lucide-react';
-import type { Project } from '../data/projects';
-import { projectsData } from '../data/projects';
+import { projectsData } from '../data/profile';
+import type { ProjectItem } from '../data/profile';
 
-// Ikon GitHub SVG Inline yang tangguh dan independen
-const GithubIcon = ({ size = 20, ...props }: { size?: number } & React.SVGProps<SVGSVGElement>) => (
-  <svg
-    viewBox="0 0 24 24"
-    width={size}
-    height={size}
-    stroke="currentColor"
-    strokeWidth="2"
-    fill="none"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    {...props}
-  >
-    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22" />
-  </svg>
+// Corner Ornament SVG Component
+const CornerOrnaments = () => (
+  <>
+    <svg className="corner-ornament top-left" width="24" height="24" viewBox="0 0 24 24" fill="none">
+      <path d="M2 2 L12 2 L2 12 Z" fill="currentColor" opacity="0.3"></path>
+      <circle cx="4" cy="4" r="1.5" fill="currentColor"></circle>
+    </svg>
+    <svg className="corner-ornament top-right" width="24" height="24" viewBox="0 0 24 24" fill="none">
+      <path d="M2 2 L12 2 L2 12 Z" fill="currentColor" opacity="0.3"></path>
+      <circle cx="4" cy="4" r="1.5" fill="currentColor"></circle>
+    </svg>
+    <svg className="corner-ornament bottom-left" width="24" height="24" viewBox="0 0 24 24" fill="none">
+      <path d="M2 2 L12 2 L2 12 Z" fill="currentColor" opacity="0.3"></path>
+      <circle cx="4" cy="4" r="1.5" fill="currentColor"></circle>
+    </svg>
+    <svg className="corner-ornament bottom-right" width="24" height="24" viewBox="0 0 24 24" fill="none">
+      <path d="M2 2 L12 2 L2 12 Z" fill="currentColor" opacity="0.3"></path>
+      <circle cx="4" cy="4" r="1.5" fill="currentColor"></circle>
+    </svg>
+  </>
 );
 
 export default function Projects() {
-  const [filter, setFilter] = useState<'All' | 'Software' | 'UI/UX Design'>('All');
-  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [selectedProject, setSelectedProject] = useState<ProjectItem | null>(null);
   
   // Ref untuk mengembalikan fokus setelah modal ditutup
   const triggerButtonRefs = useRef<{ [key: string]: HTMLButtonElement | null }>({});
   // Ref untuk tombol close modal
   const closeButtonRef = useRef<HTMLButtonElement | null>(null);
 
-  // Filter proyek
-  const filteredProjects = projectsData.filter((project) => {
-    if (filter === 'All') return true;
-    return project.category === filter;
-  });
-
-  const handleOpenModal = (project: Project) => {
+  const handleOpenModal = (project: ProjectItem) => {
     setSelectedProject(project);
   };
 
@@ -64,7 +62,6 @@ export default function Projects() {
   // Kelola perpindahan fokus ketika modal terbuka/tertutup
   useEffect(() => {
     if (selectedProject) {
-      // Pindahkan fokus ke tombol close modal setelah terbuka
       setTimeout(() => {
         closeButtonRef.current?.focus();
       }, 50);
@@ -72,60 +69,48 @@ export default function Projects() {
   }, [selectedProject]);
 
   return (
-    <section id="proyek" className="projects-section fade-in-up">
-      <div className="section-header">
-        <h2 className="section-title">Galeri Portofolio</h2>
-        <p className="section-subtitle">Daftar proyek rekayasa perangkat lunak dan studi kasus desain UI/UX</p>
+    <section id="proyek" className="editorial-section fade-in-up">
+      <div className="editorial-left">
+        <h2>Stuff I've Made</h2>
       </div>
 
-      {/* Filter Kategori */}
-      <div className="filter-container">
-        {(['All', 'Software', 'UI/UX Design'] as const).map((cat) => (
-          <button
-            key={cat}
-            onClick={() => setFilter(cat)}
-            className={`filter-btn ${filter === cat ? 'active' : ''}`}
-          >
-            {cat === 'All' ? 'Semua Proyek' : cat}
-          </button>
-        ))}
-      </div>
-
-      {/* Grid Kartu Proyek */}
-      <div className="projects-grid">
-        {filteredProjects.map((project) => (
-          <button
-            key={project.id}
-            ref={(el) => { triggerButtonRefs.current[project.id] = el; }}
-            onClick={() => handleOpenModal(project)}
-            className="project-card-btn"
-            aria-haspopup="dialog"
-          >
-            <div className="project-card">
-              <div className="project-image-wrapper">
+      <div className="editorial-right">
+        {/* Grid Kartu Proyek */}
+        <div className="stuff-grid">
+          {projectsData.map((project) => (
+            <button
+              key={project.id}
+              ref={(el) => { triggerButtonRefs.current[project.id] = el; }}
+              onClick={() => handleOpenModal(project)}
+              className="project-card-btn"
+              aria-haspopup="dialog"
+              style={{ borderRadius: '8px' }}
+            >
+              <div className="vintage-card">
+                <CornerOrnaments />
                 <img
                   src={project.imageUrl}
                   alt={project.title}
-                  className="project-image"
+                  className="stuff-card-image"
                   loading="lazy"
                 />
-                <span className="project-badge">{project.category}</span>
-              </div>
-              <div className="project-info">
-                <h3 className="project-card-title">{project.title}</h3>
-                <p className="project-card-summary">{project.summary}</p>
-                <div className="project-card-tech">
-                  {project.technologies.slice(0, 3).map((tech) => (
-                    <span key={tech} className="tech-tag">{tech}</span>
-                  ))}
-                  {project.technologies.length > 3 && (
-                    <span className="tech-tag">+{project.technologies.length - 3}</span>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem', padding: '1.25rem 1.25rem 1.5rem 1.25rem', flexGrow: 1 }}>
+                  <h3 className="project-card-title" style={{ fontFamily: 'var(--font-serif)', fontSize: '1.2rem', marginBottom: '0.25rem' }}>
+                    {project.title}
+                  </h3>
+                  <p className="project-card-summary" style={{ fontSize: '0.85rem', lineHeight: '1.5', margin: 0, flexGrow: 1 }}>
+                    {project.description}
+                  </p>
+                  {project.status && (
+                    <span className={`status-badge-vintage ${project.status.toLowerCase()}`} style={{ marginTop: '0.75rem' }}>
+                      {project.status}
+                    </span>
                   )}
                 </div>
               </div>
-            </div>
-          </button>
-        ))}
+            </button>
+          ))}
+        </div>
       </div>
 
       {/* Modal Detail Proyek (A11y Dialog) */}
@@ -160,23 +145,16 @@ export default function Projects() {
               </div>
 
               <div className="modal-details">
-                <span className="modal-badge">{selectedProject.category}</span>
-                <h3 id="modal-title" className="modal-project-title">
+                {selectedProject.status && (
+                  <span className="modal-badge">{selectedProject.status}</span>
+                )}
+                <h3 id="modal-title" className="modal-project-title" style={{ fontFamily: 'var(--font-serif)' }}>
                   {selectedProject.title}
                 </h3>
                 
                 <p className="modal-description">{selectedProject.description}</p>
-                
-                <div className="modal-tech-section">
-                  <h4 className="modal-subtitle-tech">Teknologi & Alat:</h4>
-                  <div className="modal-tech-tags">
-                    {selectedProject.technologies.map((tech) => (
-                      <span key={tech} className="tech-tag">{tech}</span>
-                    ))}
-                  </div>
-                </div>
 
-                <div className="modal-actions">
+                <div className="modal-actions" style={{ marginTop: '2rem' }}>
                   {selectedProject.demoUrl && (
                     <a
                       href={selectedProject.demoUrl}
@@ -185,16 +163,6 @@ export default function Projects() {
                       className="btn btn-primary btn-sm"
                     >
                       Kunjungi Live <ExternalLink size={14} style={{ marginLeft: '6px' }} />
-                    </a>
-                  )}
-                  {selectedProject.repoUrl && selectedProject.category === 'Software' && (
-                    <a
-                      href={selectedProject.repoUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="btn btn-secondary btn-sm"
-                    >
-                      Lihat Kode <GithubIcon size={14} style={{ marginLeft: '6px' }} />
                     </a>
                   )}
                 </div>

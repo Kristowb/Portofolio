@@ -92,6 +92,23 @@
       "priority": 6,
       "passes": true,
       "notes": "Komponen Contact.tsx dibuat dengan formulir kontak yang divalidasi, toast notifikasi melayang, simulasi pengiriman API 1.5s dengan logs konsol, tata letak responsif, build & lint bersih."
+    },
+    {
+      "id": "US-007",
+      "title": "Integrasi Konten & Struktur Bertema Thariq.io",
+      "description": "As a visitor, I want to switch between Professional and Personal modes and view styled projects, articles, and flip-whirl profile photo so I can enjoy a premium editorial experience.",
+      "acceptanceCriteria": [
+        "Tambahkan mode switcher (Professional vs Personal) di navbar tengah dengan ornamen SVG",
+        "Buat foto profil bulat yang berputar dengan SVG whirl (whirl-slow/medium/fast) dan dapat membalik (flip 3D) saat di-hover",
+        "Sesuaikan nama profil utama menjadi Kristianto Wibawa",
+        "Rancang seksi Posts (artikel/tulisan pendek) di bawah About",
+        "Ubah grid proyek menjadi 'Stuff I've Made' dengan lencana status (Acquisition, Prototype, Active) dan ornamen sudut vintage",
+        "Tambahkan pemisah halaman gradasi emas yang estetik",
+        "Verifikasi build lokal berhasil tanpa error TypeScript"
+      ],
+      "priority": 7,
+      "passes": false,
+      "notes": "Sedang diimplementasikan..."
     }
   ]
 }
