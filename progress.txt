@@ -32,3 +32,10 @@
 - **Pembelajaran untuk iterasi berikutnya:**
   - Pola yang ditemukan: Di React + TypeScript, pastikan bahwa fungsi pendengar event (seperti `handleCloseModal` yang dipanggil di `useEffect`) dideklarasikan SEBELUM blok efek tersebut, atau ditangani secara inline/useCallback untuk mencegah error linter. Impor tipe data TypeScript otonom harus dituliskan menggunakan syntax `import type` saat verbatimModuleSyntax diaktifkan.
 ---
+
+## 2026-06-11 - US-005
+- Apa yang diimplementasikan: Pembuatan komponen Skills.tsx yang mengelompokkan keahlian ke dalam 3 kategori dengan visualisasi tingkat penguasaan yang rapi, progress bar teranimasi CSS `@keyframes fillProgress`, dan integrasi ikon yang dinamis dari Lucide React.
+- File yang diubah: src/components/Skills.tsx, src/App.tsx, src/index.css, prd.json.
+- **Pembelajaran untuk iterasi berikutnya:**
+  - Pola yang ditemukan: Melakukan typecast kustom (seperti `as React.CSSProperties` pada atribut style) berguna ketika mengirim variabel CSS (`--skill-level`) secara dinamis di React agar compiler TypeScript tidak mengeluh tentang tipe data style objek.
+---

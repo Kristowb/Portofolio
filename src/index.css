@@ -560,3 +560,103 @@ a {
   }
 }
 
+/* Styling Section Keahlian */
+.skills-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  width: 100%;
+}
+
+.skills-category-card {
+  background-color: var(--panel-bg);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.skills-category-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.skills-category-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: var(--text-main);
+  border-bottom: 2px solid var(--accent-light);
+  padding-bottom: 0.5rem;
+}
+
+.skills-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.skill-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.skill-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.skill-name-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.skill-icon {
+  color: var(--accent-color);
+}
+
+.skill-name {
+  font-weight: 500;
+  font-size: 0.95rem;
+  color: var(--text-main);
+}
+
+.skill-percentage {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.skill-bar-bg {
+  width: 100%;
+  height: 6px;
+  background-color: var(--border-color);
+  border-radius: 9999px;
+  overflow: hidden;
+}
+
+/* Animasi Pengisian Progress Bar */
+@keyframes fillProgress {
+  from { width: 0; }
+  to { width: var(--skill-level); }
+}
+
+.skill-bar-fill {
+  height: 100%;
+  background-color: var(--accent-color);
+  border-radius: 9999px;
+  width: 0;
+  animation: fillProgress 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation-delay: 0.1s;
+}
+
+@media (max-width: 768px) {
+  .skills-container {
+    grid-template-columns: 1fr;
+  }
+}
+
