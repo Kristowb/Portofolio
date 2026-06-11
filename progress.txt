@@ -11,3 +11,10 @@
 - **Pembelajaran untuk iterasi berikutnya:**
   - Pola yang ditemukan: Skrip `npm run build` menjalankan `tsc -b` secara default di Vite + React TS, namun menambahkan `"typecheck": "tsc --noEmit"` memberikan pengecekan yang lebih cepat dan mandiri untuk siklus kualitas Ralph.
 ---
+
+## 2026-06-11 - US-002
+- Apa yang diimplementasikan: Pembuatan komponen ThemeToggle.tsx menggunakan React state dan useEffect untuk mensinkronkan data-theme di document.documentElement, penyimpanan preferensi di localStorage, transisi CSS global, dan ikon dari lucide-react.
+- File yang diubah: src/components/ThemeToggle.tsx, src/App.tsx, src/index.css, prd.json.
+- **Pembelajaran untuk iterasi berikutnya:**
+  - Pola yang ditemukan: Di React, properti gaya menggunakan sintaks camelCase (seperti `justifyContent` alih-alih `justify-content`). Penting untuk memverifikasi camelCase ini agar compiler/typecheck TypeScript tidak error.
+---
